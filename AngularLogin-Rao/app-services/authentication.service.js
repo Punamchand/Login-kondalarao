@@ -11,17 +11,17 @@
 
         service.Login = Login;
         service.Create = Create;
+        service.ActivateUser = ActivateUser;
         service.SetCredentials = SetCredentials;
         service.ClearCredentials = ClearCredentials;
 
         return service;
 
-        function Login(username, password, callback) {
+        function Login(email, password, callback) {
 
-            var url = 'http://localhost:57386/api/User?username=' + username + '&password=' + password;
+            var url = 'http://localhost:57386/api/User?email=' + email + '&password=' + password;
             $http.get(url)
                 .success(function (response) {
-
                     callback(response);
                 })
                 .error(function (response) {
@@ -35,8 +35,7 @@
             //var encodedpwd = Base64.encode(user.password);
 
             var postRegData = '<User xmlns:i=\'http://www.w3.org/2001/XMLSchema-instance\' z:Id=\'i1\' xmlns:z=\'http://schemas.microsoft.com/2003/10/Serialization/\' xmlns=\'http://schemas.datacontract.org/2004/07/BooksAPI.Models\'>\n' +
-                '  <FirstName>' + user.firstName +'</FirstName>\n' +
-                '  <LastName>'+ user.lastName +'</LastName>\n' +
+                '  <Email>' + user.emailid +'</Email>\n' +
                 '  <Password>'+ user.password +'</Password>\n' +
                 '  <Username>'+ user.username +'</Username>\n' +
                 '</User>';
@@ -56,11 +55,25 @@
 
         }
 
-        function SetCredentials(username, password) {
-            var authdata = Base64.encode(username + ':' + password);
+        function ActivateUser(userid){
+            var url = 'http://localhost:57386/api/User?userid=' + userid;
+            $http.get(url)
+                .success(function (response) {
+                    //alert(response);
+                })
+                .error(function (response) {
+                    //alert(response);
+                });
+        }
+
+        function SetCredentials(remember,email,username, password) {
+            var authdata = Base64.encode(email + ':' + password);
 
             $rootScope.globals = {
                 currentUser: {
+                    remember:remember,
+                    email:email,
+                    logindate: new Date(),
                     username: username,
                     authdata: authdata
                 }

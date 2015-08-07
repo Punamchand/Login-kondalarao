@@ -1,1 +1,67 @@
 ﻿
+
+.main{
+    height: 100%;
+}
+
+.imgarea img{
+        height: 100%;
+        width: 100%;
+}
+
+.jump{
+    background: transparent !important;
+}
+
+.homescreen {
+    background-color: lightgray;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 300px) {
+    .homescreen {
+        background-color: lightblue;
+    }
+}
+
+
+.logintext {
+    font-size: large;
+    font-family: cursive;
+}
+
+
+.loginscreen {
+    border: black 1px solid;
+    alignment: center;
+    padding: 10px;
+    background: lightcyan;
+}
+
+
+.registerscreen {
+    border: black 2px solid;
+    padding: 10px;
+    background: lightcyan;
+}
+
+.texthead {
+
+    font-size: x-large;
+    text-align: -webkit-center;
+    margin: 10px;
+
+}
+
+
+.logo-title{
+    font-size: 1em;
+    font-weight: bolder ;
+    /*margin-top: 10px;*/
+    /*//margin-bottom:40px ;*/
+    min-height: 30px;
+}
+
+
+

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="app" class="main">
 <head>
     <meta charset="utf-8" />
     <title>AngularJS Login</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
     <link href="app-content/app.css" rel="stylesheet" />
 </head>
-<body>
+<body class="homescreen" style="background-image: url('Web-Background.jpg')">
 
-    <div class="jumbotron">
+<div class="jumbotron jump" >
         <div class="container">
             <div class="col-sm-8 col-sm-offset-2">
                 <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
@@ -31,5 +31,6 @@
     <script src="home/home.controller.js"></script>
     <script src="login/login.controller.js"></script>
     <script src="register/register.controller.js"></script>
+    <script src="activate/activate.controller.js"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@
     LoginController.$inject = ['$location', 'AuthenticationService', 'FlashService'];
     function LoginController($location, AuthenticationService, FlashService) {
         var vm = this;
-
+        //$rootScope.globals.currentUser.logindate = null;
         vm.login = login;
 
         (function initController() {
@@ -18,10 +18,12 @@
 
         function login() {
             vm.dataLoading = true;
-            AuthenticationService.Login(vm.username, vm.password, function (response) {
+            AuthenticationService.Login(vm.emailid, vm.password, function (response) {
                 if (response.indexOf('Success') > -1) {
-                    AuthenticationService.SetCredentials(vm.username, vm.password);
+                    var username = response.split("-")[1].replace('"','');
+                    AuthenticationService.SetCredentials(vm.remember, vm.emailid,username, vm.password);
                     $location.path('/');
+
                 } else {
                     FlashService.Error(response);
                     vm.dataLoading = false;
