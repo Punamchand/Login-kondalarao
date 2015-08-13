@@ -10,6 +10,7 @@
         var vm = this;
         //$rootScope.globals.currentUser.logindate = null;
         vm.login = login;
+        vm.remember = false;
 
         (function initController() {
             // reset login status

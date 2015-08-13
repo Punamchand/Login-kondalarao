@@ -13,7 +13,7 @@
         if($rootScope.globals.currentUser.remember == false) {
 
             var curdate = new Date();
-            var date2 = $rootScope.globals.currentUser.logindate;
+            var date2 = new Date($rootScope.globals.currentUser.logindate);
             var timeDiff = Math.abs(date2.getTime() - curdate.getTime());
             var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
